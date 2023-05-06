@@ -14,6 +14,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.color.DynamicColors;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Objects;
 
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String LOG_TAG = MainActivity.class.getName();
 
     private FirebaseAuth firebaseAuth;
+    private FirebaseUser user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,5 +58,14 @@ public class MainActivity extends AppCompatActivity {
     private void openShopActivity() {
         Intent openLoginIntent = new Intent(this, ShopActivity.class);
         startActivity(openLoginIntent);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            openShopActivity();
+        }
     }
 }

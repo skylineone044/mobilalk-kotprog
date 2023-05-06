@@ -3,10 +3,12 @@
     <style name="Base.Theme.Thechshop" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorControlNormal">@color/white</item>
     </style>
 
     <style
         name="AdaptiveTheme"
         parent="ThemeOverlay.Material3.DynamicColors.DayNight">
     </style>
+
 </resources>

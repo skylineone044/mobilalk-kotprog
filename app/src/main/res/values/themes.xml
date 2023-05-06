@@ -11,4 +11,5 @@
         name="AdaptiveTheme"
         parent="ThemeOverlay.Material3.DynamicColors.DayNight">
     </style>
+
 </resources>
