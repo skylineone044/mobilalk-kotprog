@@ -13,4 +13,62 @@
     <string name="signup_failed">A regisztráció sikertelen!</string>
     <string name="signin_successful">Sikeres Bejelentkezés</string>
     <string name="signin_failed">Sikertelen Bejelentkezés</string>
+    <string name="to_cart">Kosárba</string>
+    <string name="tech_shop">Tech Shop</string>
+
+    <string-array name="itemTitles">
+        <item>Acer nitro 5</item>
+        <item>Focusrite scarlett 2i2 3rd-gen</item>
+        <item>Keychon K1 Pro (brown)</item>
+        <item>LG_32UN650-W Monitor</item>
+        <item>Logitech G604 Egér</item>
+        <item>Poco F1 Okostelefon</item>
+        <item>Shrue SM58 Mikrofon</item>
+        <item>USB Hub</item>
+        <item>XLR Kábel</item>
+        <item>DisplayPort Kábel</item>
+        <item>HDMI Kábel</item>
+    </string-array>
+
+    <string-array name="itemDescriptions">
+        <item>Gamer laptop: R5 4600U, GTX 1650, 32GB DDR4 3200 RAM</item>
+        <item>Külső hangkártya: Két bemenet, két kimentet</item>
+        <item>Mechanikus billentyűzet: Gateron Barna kapcsolókkal</item>
+        <item>4K felbontás, 32 colos méret</item>
+        <item>6 oldalsó gomb, szabad görgő</item>
+        <item>Xiaomi PocoPhone F1 okostelefon</item>
+        <item>Stúdió mikrofon</item>
+        <item>4 port USB 3.0 hub</item>
+        <item>3m hosszú</item>
+        <item>1m hosszú</item>
+        <item>1m hosszú</item>
+    </string-array>
+
+    <string-array name="itemPrices">
+        <item>400000</item>
+        <item>60000</item>
+        <item>50000</item>
+        <item>140000</item>
+        <item>45000</item>
+        <item>65000</item>
+        <item>50000</item>
+        <item>5000</item>
+        <item>5000</item>
+        <item>3000</item>
+        <item>3000</item>
+    </string-array>
+
+    <array name="itemImages">
+        <item>@drawable/acer_nitro_5</item>
+        <item>@drawable/scarlett_2i2_3rd_gen</item>
+        <item>@drawable/keychon_k1_pro_brown</item>
+        <item>@drawable/lg_monitor</item>
+        <item>@drawable/logitech_g604</item>
+        <item>@drawable/poco_f1</item>
+        <item>@drawable/sm58</item>
+        <item>@drawable/usb_hub</item>
+        <item>@drawable/xlr_cable</item>
+        <item>@drawable/dp_cable</item>
+        <item>@drawable/hdmi_cable</item>
+    </array>
 </resources>
