@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "466583926828",
+    "project_id": "mobilalk-techshop",
+    "storage_bucket": "mobilalk-techshop.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:466583926828:android:9daf71e6b8df0dd6767989",
+        "android_client_info": {
+          "package_name": "com.example.thechshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "466583926828-76rbvhucpg9lihlfdp4g6iqvomfd6auv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC27r60H88RujGtbiH_autvWN0Fzn719xg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "466583926828-76rbvhucpg9lihlfdp4g6iqvomfd6auv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
