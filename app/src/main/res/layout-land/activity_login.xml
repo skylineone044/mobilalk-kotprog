@@ -31,6 +31,7 @@
 
         <com.google.android.material.textfield.MaterialAutoCompleteTextView
             android:id="@+id/editTextEmail"
+            android:importantForAutofill="yes"
             android:layout_width="350sp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -46,6 +47,7 @@
 
         <com.google.android.material.textfield.MaterialAutoCompleteTextView
             android:id="@+id/editTextPassword"
+            android:importantForAutofill="yes"
             android:layout_width="350sp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -55,6 +57,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="Login"
             android:text="@string/login_text"/>
 
 

@@ -8,4 +8,9 @@
     <string name="email">Email cím</string>
     <string name="password">Jelszó</string>
     <string name="password_again">Jelszó ismétlése</string>
+    <string name="passwords_dont_match">A jelszavak nem egyeznek!</string>
+    <string name="signup_successful">Sikeres Regisztráció!</string>
+    <string name="signup_failed">A regisztráció sikertelen!</string>
+    <string name="signin_successful">Sikeres Bejelentkezés</string>
+    <string name="signin_failed">Sikertelen Bejelentkezés</string>
 </resources>
