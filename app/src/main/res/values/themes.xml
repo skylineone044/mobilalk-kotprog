@@ -6,4 +6,9 @@
     </style>
 
     <style name="Theme.Thechshop" parent="Base.Theme.Thechshop" />
+
+    <style
+        name="AdaptiveTheme"
+        parent="ThemeOverlay.Material3.DynamicColors.DayNight">
+    </style>
 </resources>

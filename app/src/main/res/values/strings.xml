@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Thechshop</string>
+    <string name="welcome_text">Üdv a TechShopban</string>
+    <string name="login_text">Bejelentkezés</string>
+    <string name="login_as_guest_text">Bejelentkezés Vendégként</string>
+    <string name="signup_text">Regisztráció</string>
+    <string name="title_activity_login_activity">LoginActivity</string>
+    <string name="email">Email cím</string>
+    <string name="password">Jelszó</string>
+    <string name="password_again">Jelszó ismétlése</string>
 </resources>
