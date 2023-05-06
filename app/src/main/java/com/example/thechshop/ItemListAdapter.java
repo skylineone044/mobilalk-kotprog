@@ -7,24 +7,27 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.AnimatorRes;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHolder> {
     private static final String LOG_TAG = ItemListAdapter.class.getName();
     private ArrayList<ShopItem> items;
     private Context context;
     private int lastPosition = -1;
+    private FirebaseFirestore firestore;
+    private FirebaseUser user;
 
     public ItemListAdapter(Context context, ArrayList<ShopItem> items) {
         this.items = items;
@@ -34,6 +37,8 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        firestore = FirebaseFirestore.getInstance();
+        user = FirebaseAuth.getInstance().getCurrentUser();
         return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.list_item, parent, false));
     }
 
@@ -67,8 +72,8 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
             description = itemView.findViewById(R.id.itemDescription);
             price = itemView.findViewById(R.id.itemPrice);
             imageView = itemView.findViewById(R.id.itemImage);
-            itemView.findViewById(R.id.toCartBTN).setOnClickListener(v -> {
-
+            itemView.findViewById(R.id.toCartButton).setOnClickListener(v -> {
+                addToCart(new ShopItem(title.getText().toString(), description.getText().toString(), Integer.parseInt(price.getText().toString().split(" ")[0])));
                 Log.d(LOG_TAG, "Adding item to cart");
             });
         }
@@ -79,5 +84,24 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
             price.setText(String.valueOf(currentItem.getPrice_ft()) + " Ft");
             Glide.with(context).load(currentItem.getImageResource()).into(imageView);
         }
+    }
+
+    private void addToCart(ShopItem item) {
+        firestore.collection("Cart").whereEqualTo("itemTitle", item.getTitle()).get().addOnSuccessListener(queryDocumentSnapshots -> {
+            int currentlyInCart = 0;
+            String inCartID = "";
+
+            if (queryDocumentSnapshots.size() > 0) {
+                currentlyInCart = queryDocumentSnapshots.toObjects(CartItem.class).get(0).getAmount();
+                inCartID = queryDocumentSnapshots.getDocuments().get(0).getId();
+                firestore.collection("Cart").document(inCartID).update("amount", currentlyInCart + 1);
+            } else {
+                firestore.collection("Cart").add(new CartItem(
+                        user.getUid(),
+                        item.getTitle(),
+                        1
+                ));
+            }
+        });
     }
 }

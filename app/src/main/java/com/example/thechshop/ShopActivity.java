@@ -1,24 +1,17 @@
 package com.example.thechshop;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
 
 import com.google.android.material.color.DynamicColors;
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,8 +19,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
@@ -42,8 +33,7 @@ public class ShopActivity extends AppCompatActivity {
     private RecyclerView itemlistRV;
     private ArrayList<ShopItem> itemList;
     private ItemListAdapter itemListAdapter;
-
-    private int gridNumber = 1;
+    private int columns;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +50,8 @@ public class ShopActivity extends AppCompatActivity {
         }
 
         itemlistRV = findViewById(R.id.itemListRV);
-        itemlistRV.setLayoutManager(new GridLayoutManager(this, gridNumber));
+        columns = getResources().getInteger(R.integer.gallery_columns);
+        itemlistRV.setLayoutManager(new GridLayoutManager(this, columns));
         itemList = new ArrayList<>();
         itemListAdapter = new ItemListAdapter(this, itemList);
 
@@ -85,14 +76,12 @@ public class ShopActivity extends AppCompatActivity {
                 return false;
             }
         });
-        final int columns = getResources().getInteger(R.integer.gallery_columns);
-        itemlistRV.setLayoutManager(new GridLayoutManager(this, columns));
 
         loadData();
     }
 
     private void openCart() {
-        Intent openLoginIntent = new Intent(this, cartActivity.class);
+        Intent openLoginIntent = new Intent(this, CartActivity.class);
         startActivity(openLoginIntent);
     }
 

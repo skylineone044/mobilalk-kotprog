@@ -16,6 +16,12 @@ public class ShopItem {
         this.imageResource = imageResource;
     }
 
+    public ShopItem(String title, String description, int price_ft) {
+        this.title = title;
+        this.description = description;
+        this.price_ft = price_ft;
+    }
+
     public String getTitle() {
         return title;
     }

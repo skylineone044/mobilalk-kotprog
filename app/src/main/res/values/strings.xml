@@ -17,6 +17,9 @@
     <string name="tech_shop">Tech Shop</string>
     <string name="cart">Kosár</string>
     <string name="logout">Kijelentkezés</string>
+    <string name="submit_order">Megrendel</string>
+    <string name="cart_text">Kosár</string>
+    <string name="order_places_successfully">Sikeres Rendelés</string>
 
     <string-array name="itemTitles">
         <item>Acer nitro 5</item>
