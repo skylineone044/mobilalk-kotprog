@@ -40,6 +40,10 @@ public class LoginActivity extends AppCompatActivity {
         String email = emailET.getText().toString();
         String password = passwordET.getText().toString();
 
+        if (email.isEmpty() || password.isEmpty()) {
+            return;
+        }
+
         firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
             if (task.isSuccessful()) {
                 Toast.makeText(getApplicationContext(), R.string.signin_successful, Toast.LENGTH_SHORT).show();

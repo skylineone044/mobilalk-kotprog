@@ -44,8 +44,13 @@ public class SignupActivity extends AppCompatActivity {
         String password = passwordET.getText().toString();
         String passwordAgain = passwordAgainET.getText().toString();
 
+        if (email.isEmpty() || password.isEmpty()) {
+            return;
+        }
+
         if (!password.equals(passwordAgain)) {
             Toast.makeText(getApplicationContext(), R.string.passwords_dont_match, Toast.LENGTH_SHORT).show();
+            return;
         }
 
         firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
