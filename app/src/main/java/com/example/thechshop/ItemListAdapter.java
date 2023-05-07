@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -84,7 +85,11 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
             title.setText(currentItem.getTitle());
             description.setText(currentItem.getDescription());
             price.setText(String.valueOf(currentItem.getPrice_ft()) + " Ft");
-            Glide.with(context).load(currentItem.getImageResource()).into(imageView);
+            Glide.with(context)
+                    .load(currentItem.getImageResource())
+                    .dontAnimate()
+                    .transform(new RoundedCorners(50))
+                    .into(imageView);
         }
     }
 
