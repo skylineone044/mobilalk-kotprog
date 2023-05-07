@@ -1,4 +1,4 @@
-package com.example.thechshop;
+package com.example.techshop;
 
 import android.content.Context;
 import android.util.Log;
@@ -21,8 +21,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
-import java.util.Objects;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHolder> {
     private static final String LOG_TAG = ItemListAdapter.class.getName();

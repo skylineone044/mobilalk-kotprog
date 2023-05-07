@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.thechshop'
+    namespace 'com.example.techshop'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.thechshop"
+        applicationId "com.example.techshop"
         minSdk 29
         targetSdk 33
         versionCode 1

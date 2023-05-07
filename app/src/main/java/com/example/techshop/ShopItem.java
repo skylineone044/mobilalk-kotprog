@@ -1,4 +1,4 @@
-package com.example.thechshop;
+package com.example.techshop;
 
 public class ShopItem {
     private String title;

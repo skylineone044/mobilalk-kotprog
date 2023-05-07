@@ -1,4 +1,4 @@
-package com.example.thechshop;
+package com.example.techshop;
 
 import org.junit.Test;
 

@@ -1,11 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Thechshop" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.TechShop" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.Thechshop" parent="Base.Theme.Thechshop" />
+    <style name="Theme.TechShop" parent="Base.Theme.TechShop" />
 
     <style
         name="AdaptiveTheme"
