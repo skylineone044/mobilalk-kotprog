@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+
+        <ImageView
+            android:id="@+id/itemImage"
+            android:layout_width="match_parent"
+            android:layout_marginTop="40sp"
+            android:layout_marginLeft="20sp"
+            android:layout_marginRight="20sp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            />
+
+        <TextView
+            android:id="@+id/itemTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:layout_marginLeft="30sp"
+            android:textSize="18sp"
+            android:text="title"
+            />
+
+        <TextView
+            android:id="@+id/itemDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:layout_marginLeft="30sp"
+            android:textSize="12sp"
+            android:text="description"
+            />
+        
+        <TextView
+            android:id="@+id/itemPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:layout_marginRight="50sp"
+            android:layout_gravity="right"
+            android:textSize="18sp"
+            android:text="price"
+            />
+
+        <Button
+            android:id="@+id/toCartButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:layout_marginEnd="20sp"
+            android:text="@string/to_cart"
+            android:layout_gravity="end"
+            />
+
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
