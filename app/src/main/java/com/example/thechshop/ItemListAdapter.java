@@ -9,6 +9,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,6 +20,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHolder> {
@@ -87,7 +89,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
     }
 
     private void addToCart(ShopItem item) {
-        firestore.collection("Cart").whereEqualTo("itemTitle", item.getTitle()).get().addOnSuccessListener(queryDocumentSnapshots -> {
+        firestore.collection("Cart").whereEqualTo("itemTitle", item.getTitle()).whereEqualTo("userID", user.getUid()).get().addOnSuccessListener(queryDocumentSnapshots -> {
             int currentlyInCart = 0;
             String inCartID = "";
 
@@ -103,5 +105,6 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
                 ));
             }
         });
+        Toast.makeText(context.getApplicationContext(), item.getTitle() + " " + context.getResources().getString(R.string.added_to_cart), Toast.LENGTH_SHORT).show();
     }
 }

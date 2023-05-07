@@ -20,6 +20,7 @@
     <string name="submit_order">Megrendel</string>
     <string name="cart_text">Kosár</string>
     <string name="order_places_successfully">Sikeres Rendelés</string>
+    <string name="added_to_cart">hozzáadva a kosárhoz</string>
 
     <string-array name="itemTitles">
         <item>Acer nitro 5</item>
