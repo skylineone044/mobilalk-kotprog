@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -19,6 +20,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class CartActivity extends AppCompatActivity {
     private static final String LOG_TAG = CartActivity.class.getName();
@@ -26,10 +28,14 @@ public class CartActivity extends AppCompatActivity {
     private FirebaseUser user;
     private FirebaseFirestore firestore;
     private CollectionReference firestoreCartItems;
+    private CollectionReference firestoreItems;
     private RecyclerView cartItemlistRV;
     private ArrayList<CartItem> cartItemList;
     private CartItemListAdapter cartItemListAdapter;
     private int columns;
+    private TextView totalCostTV;
+    private int totalCost = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +51,8 @@ public class CartActivity extends AppCompatActivity {
         }
 
         cartItemlistRV = findViewById(R.id.cartItemListRV);
-        columns = getResources().getInteger(R.integer.gallery_columns);
+        totalCostTV = findViewById(R.id.totalCostTV);
+        columns = getResources().getInteger(R.integer.cart_columns);
         cartItemlistRV.setLayoutManager(new GridLayoutManager(this, columns));
         cartItemList = new ArrayList<>();
         cartItemListAdapter = new CartItemListAdapter(this, cartItemList);
@@ -54,6 +61,7 @@ public class CartActivity extends AppCompatActivity {
 
         firestore = FirebaseFirestore.getInstance();
         firestoreCartItems = firestore.collection("Cart");
+        firestoreItems = firestore.collection("Items");
 
         loadData();
     }
@@ -70,6 +78,18 @@ public class CartActivity extends AppCompatActivity {
             cartItemListAdapter.notifyDataSetChanged();
         });
         Log.d(LOG_TAG, "Loaded " + cartItemList.size() + " items");
+//        updateCartTotal();
+    }
+
+    private void updateCartTotal() {
+        totalCost = 0;
+//                totalCost += Integer.parseInt(queryDocumentSnapshots1.getDocuments().get(0).getString("price"));
+        for (CartItem cartItem : cartItemList) {
+            firestoreItems.whereEqualTo("title", cartItem.getItemTitle()).get().addOnSuccessListener(queryDocumentSnapshots -> {
+                totalCost += cartItem.getAmount() * Integer.parseInt(queryDocumentSnapshots.getDocuments().get(0).get("price_ft").toString());
+            });
+        }
+        totalCostTV.setText("Összesen: " + totalCost + " Ft");
     }
 
     public void palceOrder(View view) {
