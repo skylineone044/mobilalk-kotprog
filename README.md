@@ -1,6 +1,8 @@
 # mobilalk-kotprog
 19 - Számítástechnikai eszköz webshop
 
+## ha valami nem megy: `skyline#0269`
+
 ## Mi merre:
 
 - Fordítási hiba nincs
